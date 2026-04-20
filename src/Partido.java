@@ -55,12 +55,12 @@ public class Partido implements Comparable {
      * @return siglas del partido politico
      */
     private String generarSiglas(String nombre) {
-        StringBuilder siglas = new StringBuilder();
+        String siglas = "";
 
         for (String palabra : nombre.split(" "))
-            siglas.append(palabra.charAt(0));
+            siglas += palabra.charAt(0);
 
-        return siglas.toString();
+        return siglas.toUpperCase();
     }
 
     @Override
