@@ -39,15 +39,12 @@ public class Provincia {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(String.format("- Provincia: %s <%d escaños>\n", nombre, numEscanos));
-
+        String res = String.format("- Provincia: %s <%d escaños>\n", nombre, numEscanos);
         if (contadorCandidaturas == 0)
-            sb.append("<Aun no hay candidaturas registradas en esta provincia>");
-
+            res += "<Aun no hay candidaturas registradas en esta provincia>";
         else
             for (int i = 0; i < contadorCandidaturas; i++)
-                sb.append(candidaturas[i]).append("\n");
-
-        return sb.toString();
+                res += candidaturas[i] + "\n";
+        return res;
     }
 }

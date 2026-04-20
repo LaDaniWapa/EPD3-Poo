@@ -36,24 +36,17 @@ public class SistemaElecciones {
     }
 
     public String mostrarSistema() {
-        StringBuilder sb = new StringBuilder("=== SISTEMA DE ELECCIONES AL PARLAMENTO DE ANDALUCIA ===\n\n");
-
+        String res = "=== SISTEMA DE ELECCIONES AL PARLAMENTO DE ANDALUCIA ===\n\n";
         if (contadorProvincias == 0)
-            sb.append("<Aun no hay provincias registradas en el sistema>");
-
+            res += "<Aun no hay provincias registradas en el sistema>";
         else {
-            sb.append("[ PROVINCIAS REGISTRADAS ]\n");
-
-            for (int i = 0; i < contadorProvincias; i++) {
-                sb.append(provincias[i]).append("\n");
-            }
-            sb.append("\n[ MESAS ELECTORALES REGISTRADAS ]\n");
-
-            for (int i = 0; i < contadorMesas; i++) {
-                sb.append(mesas[i]).append("\n");
-            }
+            res += "[ PROVINCIAS REGISTRADAS ]\n";
+            for (int i = 0; i < contadorProvincias; i++)
+                res += provincias[i] + "\n";
+            res += "\n[ MESAS ELECTORALES REGISTRADAS ]\n";
+            for (int i = 0; i < contadorMesas; i++)
+                res += mesas[i] + "\n";
         }
-
-        return sb.toString();
+        return res;
     }
 }

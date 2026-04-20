@@ -1,7 +1,7 @@
 /**
  * Representa un partido politico que concurre a las elecciones
  */
-public class Partido implements Comparable<Partido> {
+public class Partido implements Comparable {
     /// Nombre completo del partido [Mayus]
     private String nombre;
     /// Siglas del partido [Mayus]
@@ -79,11 +79,15 @@ public class Partido implements Comparable<Partido> {
     }
 
     @Override
-    public int compareTo(Partido p) {
-        int res = this.siglas.compareTo(p.siglas);
+    public int compareTo(Object obj) {
+        if (obj == null) return 1;
+        if (obj == this) return 0;
 
-        if (res == 0) res = this.nombre.compareTo(p.nombre);
-
-        return res;
+        if (obj instanceof Partido p) {
+            int res = this.siglas.compareTo(p.siglas);
+            if (res == 0) res = this.nombre.compareTo(p.nombre);
+            return res;
+        } else
+            return 1;
     }
 }

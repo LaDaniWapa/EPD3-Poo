@@ -13,11 +13,16 @@ public abstract class Persona {
     }
 
     public Persona(String nombre, int edad, String dni) {
-        if (edad <= 0) throw new IllegalArgumentException("La edad debe ser mayor a 0");
+//        if (edad <= 0) throw new IllegalArgumentException("La edad debe ser mayor a 0");
+
+        if (edad <= 0) {
+            System.err.println("La edad debe ser mayor a 0");
+            this.edad = 0;
+        } else
+            this.edad = edad;
 
         this.nombre = nombre;
         this.dni = dni.toUpperCase();
-        this.edad = edad;
     }
 
     public String getNombre() {
@@ -33,8 +38,11 @@ public abstract class Persona {
     }
 
     public void setEdad(int edad) {
-        if (edad <= 0) throw new IllegalArgumentException("La edad debe ser mayor a 0");
-        this.edad = edad;
+        if (edad <= 0) {
+            System.err.println("La edad debe ser mayor a 0");
+            this.edad = 0;
+        } else
+            this.edad = edad;
     }
 
     public void setDni(String dni) {

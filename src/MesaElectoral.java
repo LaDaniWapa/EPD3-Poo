@@ -15,13 +15,18 @@ public class MesaElectoral {
     }
 
     public MesaElectoral(String codigo, String municipio, int censo, int participacion) {
-        if (censo <= 0) throw new IllegalArgumentException("El numero de personas censadas debe ser mayor a 0");
-        checkParticipacion(participacion, censo);
+//        if (censo <= 0) throw new IllegalArgumentException("El numero de personas censadas debe ser mayor a 0");
+
+        if (censo <= 0) {
+            System.err.println("El numero de personas censadas debe ser mayor a 0");
+            this.censo = 0;
+        } else
+            this.censo = censo;
+
+        this.participacion = checkParticipacion(participacion, this.censo);
 
         this.codigo = codigo.toUpperCase();
         this.municipio = municipio.toUpperCase();
-        this.censo = censo;
-        this.participacion = participacion;
     }
 
     public String getCodigo() {
@@ -47,15 +52,27 @@ public class MesaElectoral {
 
     /**
      * Valida que la participacion sea positiva y no supere el censo.
+     * Si no es valida, devuelve 0 o el tope y muestra un mensaje de error.
      *
      * @param participacion Numero de votantes.
      * @param censo         Numero total de personas censadas.
+     * @return participacion si es valida, 0 en caso negativo, censo en caso de superarlo.
      */
-    private static void checkParticipacion(int participacion, int censo) {
-        if (participacion < 0)
-            throw new IllegalArgumentException("El numero de votantes participantes debe ser mayor a 0");
-        if (participacion > censo)
-            throw new IllegalArgumentException("El numero de votantes participantes debe ser menor o igual al numero de personas censadas");
+    private static int checkParticipacion(int participacion, int censo) {
+//        if (participacion < 0)
+//            throw new IllegalArgumentException("El numero de votantes participantes debe ser mayor a 0");
+//        if (participacion > censo)
+//            throw new IllegalArgumentException("El numero de votantes participantes debe ser menor o igual al numero de personas censadas");
+
+        if (participacion < 0) {
+            System.err.println("El numero de votantes participantes debe ser mayor a 0");
+            return 0;
+        }
+        if (participacion > censo) {
+            System.err.println("El numero de votantes participantes debe ser menor o igual al numero de personas censadas");
+            return censo;
+        }
+        return participacion;
     }
 
     @Override
