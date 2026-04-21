@@ -63,6 +63,11 @@ public class Candidatura extends Persona implements IVotable {
      * @param votos numero de votos a añadir
      */
     public void sumarVotos(int votos) {
+        if (votos < 0) {
+            System.err.println("El numero de votos a sumar debe ser mayor a 0");
+            return;
+        }
+
         this.votos = Math.min(this.votos + votos, MAXVOTOS);
     }
 
@@ -71,7 +76,7 @@ public class Candidatura extends Persona implements IVotable {
             System.err.println("El numero de escaños debe ser mayor a 0");
             this.escanos = 0;
         } else
-            this.escanos = escanos;;
+            this.escanos = escanos;
     }
 
     @Override

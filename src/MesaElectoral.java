@@ -46,8 +46,7 @@ public class MesaElectoral {
     }
 
     public void setParticipacion(int participacion) {
-        checkParticipacion(participacion, censo);
-        this.participacion = participacion;
+        this.participacion = checkParticipacion(participacion, censo);
     }
 
     /**

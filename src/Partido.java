@@ -37,11 +37,11 @@ public class Partido implements Comparable {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
     }
 
     public void setSiglas(String siglas) {
-        this.siglas = siglas;
+        this.siglas = siglas.toUpperCase();
     }
 
     public void setIdeologia(String ideologia) {
@@ -55,9 +55,14 @@ public class Partido implements Comparable {
      * @return siglas del partido politico
      */
     private String generarSiglas(String nombre) {
+        if (nombre.isBlank()) return "";
+
         String siglas = "";
 
-        for (String palabra : nombre.split(" "))
+        // \\s+ significa cualquier cantidad de espacios o tabulaciones,
+        // para no generar palabras vacias,
+        // ya que "".charAt(0) lanza una excepcion
+        for (String palabra : nombre.split("\\s+"))
             siglas += palabra.charAt(0);
 
         return siglas.toUpperCase();
