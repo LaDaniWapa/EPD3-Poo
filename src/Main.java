@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         // Partidos
         Partido usa = new Partido("union social andaluza");
         Partido ac = new Partido("alternativa ciudadana");
@@ -20,11 +20,11 @@ public class Main {
 
         // Sistema de elecciones
         Provincia sevilla = new Provincia("sevilla", 18,2);
-        sevilla.anadirCandidatura(new Candidatura("Maria Lopez", 45, "12345678a", pva.getNombre(), pva.getSiglas(), 125430, 9));
-        sevilla.anadirCandidatura(new Candidatura("Juan Perez", 51, "22345678B", usa.getNombre(), usa.getSiglas(), 110200, 9));
+        sevilla.anadirCandidatura(new Candidatura("Maria Lopez", "12345678a", 45, pva.getNombre(), pva.getSiglas(), 125430, 9));
+        sevilla.anadirCandidatura(new Candidatura("Juan Perez", "22345678B", 51, usa.getNombre(), usa.getSiglas(), 110200, 9));
 
         Provincia granada = new Provincia("granada", 13,1);
-        granada.anadirCandidatura(new Candidatura("Ana Romero", 39, "33445566C", ac.getNombre(), ac.getSiglas(), 84500, 13));
+        granada.anadirCandidatura(new Candidatura("Ana Romero", "33445566C", 39, ac.getNombre(), ac.getSiglas(), 84500, 13));
 
         Provincia cadiz = new Provincia("cadiz", 15, 0);
 
