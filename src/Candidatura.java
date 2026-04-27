@@ -14,7 +14,7 @@ public class Candidatura extends Persona implements IVotable {
     public Candidatura() {
     }
 
-    public Candidatura(String nombre, int edad, String dni, String partido, String siglas, int votos, int escanos) {
+    public Candidatura(String nombre, String dni, int edad, String partido, String siglas, int votos, int escanos) {
         super(nombre, edad, dni);
 
 //        if (escanos < 0) throw new IllegalArgumentException("El numero de escaños debe ser mayor a 0");

@@ -35,7 +35,7 @@ public class SistemaElecciones {
             mesas[contadorMesas++] = m;
     }
 
-    public String mostrarSistema() {
+    public void mostrarSistema() {
         String res = "=== SISTEMA DE ELECCIONES AL PARLAMENTO DE ANDALUCIA ===\n\n";
         if (contadorProvincias == 0)
             res += "<Aun no hay provincias registradas en el sistema>";
@@ -47,6 +47,7 @@ public class SistemaElecciones {
             for (int i = 0; i < contadorMesas; i++)
                 res += mesas[i] + "\n";
         }
-        return res;
+        
+        System.out.println(res);
     }
 }
